@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+var connect = require('connect'),
+    http = require('http');
+
+var app = connect()
+    .use(function(req, res, next) {
+        console.log("That's middleware");
+        next();
+    })
+    .use(function(req, res, next) {
+        console.log("That'sd middleware");
+        next();
+    })
+    .use(function(req, res, next) {
+        console.log(res.end("hello"));
+    });
+
+http.createServer(app).listen(3000);
