@@ -1,0 +1,19 @@
+{
+    "name": "MoPass",
+    "version": "0.0.5",
+    "main": "index.html",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "components"
+    ],
+    "dependencies": {
+        "angular": "1.0.*",
+        "blob": "*",
+        "bootstrap": "2.3.*",
+        "file-saver": "*",
+        "jquery": "1.9.*",
+        "json2": "*",
+        "sjcl": "*"
+    }
+}

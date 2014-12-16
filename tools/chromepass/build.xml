@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Chromepass" default="production">
+
+	<target name="-production">
+		<property name="build.environment" value="production" />
+	</target>
+	<target name="production" depends="-production,-build-all" />
+
+	<target name="-testing">
+		<property name="build.environment" value="testing" />
+	</target>
+	<target name="testing" depends="-testing,-build-all" />
+
+	<target name="-build-all">
+		<ant dir="root" target="build" />
+		<ant dir="sandbox" target="build" />
+		<ant dir="extension" target="build" />
+
+		<local name="build.base" />
+		<property name="build.base" value="${basedir}/build/${build.environment}" />
+
+		<zip destfile="${build.base}-app.zip">
+			<zipfileset dir="${build.base}/root" prefix="root" />
+			<zipfileset dir="${build.base}/sandbox" prefix="sandbox" />
+			<fileset dir="${basedir}">
+				<include name="manifest.json" />
+				<include name="background.js" />
+				<include name="icon_128.png" />
+				<include name="icon_48.png" />
+			</fileset>
+		</zip>
+
+		<zip destfile="${build.base}-extension.zip">
+			<fileset dir="${build.base}/extension" />
+			<fileset dir="${basedir}/extension">
+				<include name="manifest.json" />
+				<include name="icon_128.png" />
+				<include name="icon_48.png" />
+			</fileset>
+		</zip>
+
+	</target>
+
+</project>

@@ -1,0 +1,21 @@
+{
+	"name": "ChromePass Integration",
+	"description": "Chrome browser integration for ChromePass.",
+	"version": "0.0.1",
+
+	"icons": {
+		"128": "icon_128.png",
+		"48": "icon_48.png"
+	},
+
+	"manifest_version": 2,
+
+	"permissions": [
+		"*://*/*"
+	],
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	}
+}

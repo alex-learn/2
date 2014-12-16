@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>KeyPass</title>
+	<link type="text/css" href="style.css" rel="stylesheet" />
+	<!-- load extern librairies first -->
+	<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="lib/2.4.0-crypto-sha1-hmac-pbkdf2-blockmodes-aes.js"></script>
+	<!-- then my ressources -->
+	<script type="text/javascript" src="res/keypass.js"></script>
+	<script type="text/javascript" src="res/section.js"></script>
+	<script type="text/javascript" src="res/item.js"></script>
+	<script type="text/javascript" src="res/backup.js"></script>
+	<script type="text/javascript" src="res/misc.js"></script>
+	<script type="text/javascript" src="lib/mycrypto.js"></script>
+	<!-- finally, my main script -->
+	<script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<h2>KeyPass</h2>
+				
+			<noscript>
+				<span class="alert">Vous devez activer Javascript pour utiliser cette applicaton.</span>
+			</noscript>
+			<div id="message"></div>
+			<div id="login">
+				<p>Bonjour,<br />
+				Veuillez vous connecter.</p>
+				
+				<form name="log">
+					<input type="text" name="user" size="40" value="Utilisateur" onClick="this.value=''" />
+					<input type="password" name="password" size="40" value="Mot de passe" onClick="this.value=''" onKeyPress="submitEnter('document.forms[\'log\'].connect.click()')" />
+					<input type="button" name="connect" onClick="login(this.form.user.value, this.form.password.value)" value="Valider" />
+				</form>
+			</div> <!-- end login -->
+			<div id="main">
+				<div id="donnees" class="donnees"><!-- here lies dragons --></div>
+				<div class="logout">
+					<input type="button" onClick="backupDatabase()" value="Sauvegarder la base de données" /> | 
+					<a href="#" onClick="logout()">D&eacute;connexion</a>
+				</div>
+			</div> <!-- end main -->
+		</div> <!-- end content -->
+		<div class="footer">
+			Keypass - <a href="http://github.com/romaricdrigon">http://github.com/romaricdrigon</a>
+		</div>
+	</div> <!-- end wrapper -->
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Stroboscope.js</title>
+	<link type="text/css" href="style.css" rel="stylesheet" />
+    <link type="text/css" href="lib/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="jpicker/css/jPicker-1.1.6.min.css" />
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="jpicker/jpicker-1.1.6.min.js" type="text/javascript"></script>
+    <script src="lib/dancer.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="stroboscope.js"></script>
+</head>
+<body>
+	<noscript>
+		<div class="alert">
+			Javascript must be enabled to use this application.
+		</div>
+	</noscript>
+	
+	<div class="config" id="config">
+        <div class="itext">Here you can set up the colors used</div>
+		<div class="pickers">
+			First color: <span id="picker1"></span> - Second color:  <span id="picker2"></span>
+		</div>
+        <hr />
+        <div class="itext">Manual control</div>
+        <div id="launch">
+            <button>Launch animation</button>
+        </div>
+        <div id="frequency" class="stext">1 BPM</div>
+        <div id="slider"></div>
+		<div id="sync">
+			<button>Synchronize</button>
+		</div>
+        <hr />
+        <div class="itext">Under Chrome, you can use a microphone. Be sure to have "Web audio input" enabled in <a href="chrome://flags">chrome://flags</a></div>
+        <div id="beat">
+            <button>Use microphone</button>
+        </div>
+        <div>
+            <div id="beat-threshold" class="stext">Threshold: 0.001</div>
+            <div id="slider-threshold"></div>
+            <div id="beat-decay" class="stext">Decay: 0.0003</div>
+            <div id="slider-decay"></div>
+            <div id="beat-frequency" class="stext">Frequency: [0,10]</div>
+            <div id="slider-frequency"></div>
+            <div class="stext itext"><a href="#" id="reset-frequency">Reset frequency to [0,10] kHz</a></div>
+        </div>
+	</div>
+	
+	<div id="open" class="open">Open config dialog</div>
+	
+	<script>
+		$(function() {setConfig()}); // allow us to require jQuery and wait for load
+	</script>
+</body>
+</html>
